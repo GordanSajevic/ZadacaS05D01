@@ -268,24 +268,19 @@ public class ArrayUtil {
 	
 	private static int[] sortDescending(int[] niz)
 	{
-		 int i;
-	     boolean flag = true;
-	     int temp;   
-	     while (flag)
-	     {
-	            flag= false;    
-	            for( i=0;  i < niz.length -1;  i++ )
-	            {
-	                   if ( niz[i] > niz[i+1] )   
-	                   {
-	                           temp = niz[i];                
-	                           niz[i] = niz[i+1];
-	                           niz[i+1] = temp;
-	                           flag = true;             
-	                  } 
-	            } 
-	      }
-	      return niz;
+	int pomocna, j;
+		 for (int i=1; i<niz.length; i++)
+		 {
+			 pomocna = niz[i];
+			 for (j=i-1; j>=0 && pomocna<niz[j]; j--)
+			 {
+				 
+					 niz[j+1] = niz[j];
+				 
+			}
+			niz[j+1]=pomocna;
+		 }
+		 return niz;
 	}
 	
 	/**
